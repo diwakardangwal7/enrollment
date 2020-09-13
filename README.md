@@ -152,19 +152,33 @@ Create Docker Compose File for creating 2 containers, one for app and other for 
 create docker-compose.yml
 
 version: "1"
+
 services:
+
   mongodb:
+  
     image: mongo:3.2.4
-    container_name: "mymongocontainer"    
+    
+    container_name: "mymongocontainer" 
+    
     command: --smallfiles
+    
   app:
+  
     image: diwakardangwal/myrepository:enrolv1
+    
     ports:
+    
     - 8080:8080
+    
     links:
+    
     - mongodb
+    
     depends_on:
+    
     - mongodb
+    
 
 
 Now execute
