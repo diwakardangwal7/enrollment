@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.mongodb.core.MongoOperations;
-import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
@@ -34,8 +33,7 @@ public class EnrollmentServiceImpl implements EnrollmentService {
 	@Autowired
 	MongoOperations mongoOperations;
 
-	@Autowired
-	private MongoTemplate mongoTemplate;
+	
 
 	@Transactional
 	public Enrollee addNewRnrollee(Enrollee enrollee) throws DataAccessException {
@@ -206,40 +204,6 @@ public class EnrollmentServiceImpl implements EnrollmentService {
 
 	}
 
-	public Enrollee findEnrolleeById(String id) throws DataAccessException {
-
-		Enrollee Enrollee = mongoTemplate.findOne(new Query(Criteria.where("_id").is(String.valueOf(id))),
-				Enrollee.class);
-		try {
-			if (Enrollee != null) {
-				return Enrollee;
-			} else {
-				throw new EnrolleeNotFoundException("Enrollee Not Found");
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw e;
-
-		}
-
-	}
-
-	public List<Enrollee> getAllEnrollees() throws Exception {
-
-		List<Enrollee> enrolleeList = mongoTemplate.findAll(Enrollee.class);
-
-		try {
-			if (null != enrolleeList && !enrolleeList.isEmpty()) {
-				return enrolleeList;
-			} else {
-				throw new EnrolleeNotFoundException("Not able to delete Enrollee");
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw e;
-
-		}
-
-	}
+	
 
 }

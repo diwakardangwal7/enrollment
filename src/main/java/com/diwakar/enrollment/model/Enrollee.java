@@ -88,4 +88,18 @@ public class Enrollee {
 		this.dependentsList = dependentsList;
 	}
 
+	public Enrollee(@NotNull(message = "enrolleeId is required") String enrolleeId,
+			@NotNull(message = "enrolleeName is required") String enrolleeName,
+			@NotNull(message = "enrolleeStatus is required") String enrolleeStatus,
+			@NotNull(message = "dateOfBirth is required") String enrolleeDOB, String phoneNumber) {
+		super();
+		this.enrolleeId = enrolleeId;
+		this.enrolleeName = enrolleeName;
+		this.enrolleeStatus = enrolleeStatus;
+		this.enrolleeDOB = enrolleeDOB;
+		this.phoneNumber = phoneNumber;
+	}
+
+	
+	
 }
