@@ -123,29 +123,10 @@ ENTRYPOINT ["java","-Dspring.data.mongodb.uri=mongodb://mymongocontainer:27017/e
 
 
 
-Now execute maven - by adding below plugin in pom.xml . In configuration tag please provide the dockerhub repo 
+Now execute maven by uncommenting com.spotify docker maven   plugin comment   In configuration tag please provide the dockerhub repo username password 
 
 
-<plugin>
-				<groupId>com.spotify</groupId>
-				<artifactId>dockerfile-maven-plugin</artifactId>
-				<version>${dockerfile-maven-version}</version>
-				<executions>
-					<execution>
-						<id>default</id>
-						<goals>
-							<goal>build</goal>
-							<goal>push</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<username>diwakardangwal</username>
-					<password>putyourpassword</password>     ------ do provide ur usrname and password for dockerhub
-					<repository>diwakardangwal/myrepository</repository>
-					<tag>enrolv1</tag>
-				</configuration>
-</plugin>
+Once pom.xml is updated then create maven build
 
 
 
