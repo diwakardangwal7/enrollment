@@ -1,6 +1,21 @@
 # Enrollment
 Enrollment is a spring boot based microservice for tracking the status of enrollees in a health care program.
 
+Requirements: 
+- Enrollees must have an id, name, and activation status (true or false), and a birth date
+- Enrollees may have a phone number (although they do not have to supply this)
+- Enrollees may have zero or more dependents
+- Each of an enrollee's dependents must have an id, name, and birth date
+
+The Enrollee Microservice should  be able to do handle below operations: 
+- Add a new enrollee
+- Modify an existing enrollee
+- Remove an enrollee entirely
+- Add dependents to an enrollee
+- Remove dependents from an enrollee
+- Modify existing dependents
+
+
 Prerequisites To Run the Microservice
 1. Maven
 2. Java Run Time
