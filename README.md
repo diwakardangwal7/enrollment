@@ -55,4 +55,33 @@ http://localhost:8080/enrollment/swagger-ui/
 
 ![alt text](screenshots/3.png)
 
+
+Below are the API end points testing screenshots from postman.
+
+1.  Add New Enrollee
+
+ ![alt text](screenshots/4.png)
  
+ 2. Get Enrollee
+ 
+ ![alt text](screenshots/5.png)
+ 
+ 3. Update Enrollee
+ 
+ ![alt text](screenshots/6.png)
+ 
+ 4. Delete Enrollee
+ 
+ ![alt text](screenshots/7.png)
+ 
+ 5. Add dependents of Enrollee
+ 
+ ![alt text](screenshots/8.png)
+ 
+ 6. Update dependents of Enrollee
+ 
+ ![alt text](screenshots/9.png)
+ 
+ 7. Delete dependents of Enrollee
+ 
+ ![alt text](screenshots/10.png)
