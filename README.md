@@ -19,7 +19,7 @@ spring.data.mongodb.port=27017
 spring.data.mongodb.database=enrollment
 
 4. Open command prompt and  Run mvn clean install (Please make sure that maven is in path)
-https://user-images.githubusercontent.com/53266389/93021254-5e8d3700-f5ff-11ea-841a-096956393a25.png
+![alt text](screenshots/1.png)
 
 4. Executable jar will be present in D:\Sample\enrollment-master\target
 
