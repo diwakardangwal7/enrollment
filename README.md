@@ -91,25 +91,40 @@ Below are the API end points testing screenshots from postman.
  Dockerization Of Microservice ----
  
 Changes in application.properties :
+
 Comment out mongodb host port and DB as below
+
 #spring.data.mongodb.host=localhost
+
 #spring.data.mongodb.port=27017
+
 #spring.data.mongodb.database=enrolment
 
+
 Add URI key as below in application.properties
+
 
 dockerspring.data.mongodb.uri=mongodb://mymongocontainer:27017/enrolment
 
 
+
 Now create a docker file , sample is already present in the repo
+
+
 Create a Docker File
 
 FROM openjdk:8-jdk-alpine
+
 VOLUME /tmp
+
 ADD  target/enrollment-v1.jar .
+
 ENTRYPOINT ["java","-Dspring.data.mongodb.uri=mongodb://mymongocontainer:27017/enrollment", "-jar","/enrollment-v1.jar"]
 
+
+
 Now execute maven - by adding below plugin in pom.xml . In configuration tag please provide the dockerhub repo 
+
 
 <plugin>
 				<groupId>com.spotify</groupId>
@@ -132,20 +147,26 @@ Now execute maven - by adding below plugin in pom.xml . In configuration tag ple
 				</configuration>
 </plugin>
 
+
+
 mvn clean install
+
 
 This will build the project as well as create a image for the application.
 
 
-Now push the created image in docker hub
+Now push the created image in docker hub by executing below command 
+
 
 
 docker push diwakardangwal/myrepository:enrolv1
 
+
  ![alt text](screenshots/11.png)
 
 
-Create Docker Compose File so that 2 containers can communicate with each other
+Create Docker Compose File for creating 2 containers, one for app and other for mongo db
+
 
 create docker-compose.yml
 
@@ -167,7 +188,9 @@ services:
 
 Now execute
 
+
 docker-compose pull
+
 
 ![alt text](screenshots/12.png)
 
@@ -182,6 +205,7 @@ Application will be up and running with MongoDB and all the operations listed ab
 ![alt text](screenshots/14.png)
 
 Running containers on docker can be seen by  
+
 docker container ls -a 
 
 
