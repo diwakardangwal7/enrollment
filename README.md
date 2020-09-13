@@ -11,11 +11,13 @@ Prerequisites To Run the Microservice
 Steps: 
 1. Download the code zip file or clone from github 
 2.  Lets say D:\sample is the filepath where file is unzipped.
-3 Please ensure to configure below mongo DB properties mentioned in the application.properties (src\main\resources\application.properties)
+3. Please ensure to configure below mongo DB properties mentioned in the application.properties (src\main\resources\application.properties)
 If mongo db is installed locally localhost will work otherwise IP can be provided. Default port is 27017 and DB name is enrollment. Collections will be created inside this DB automatically when we perform create operation from API.
 
 spring.data.mongodb.host=localhost
+
 spring.data.mongodb.port=27017
+
 spring.data.mongodb.database=enrollment
 
 4. Open command prompt and  Run mvn clean install (Please make sure that maven is in path)
