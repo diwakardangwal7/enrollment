@@ -40,7 +40,7 @@ public class EnrollmentRestController {
 	EnrollmentService EnrolleeService;
 
 	// Get Request for finding Enrollee by id
-	@RequestMapping(value = "/{enrollment_id}", method = RequestMethod.GET)
+	@RequestMapping(value = "getEnrollee/{enrollment_id}", method = RequestMethod.GET)
 	public ResponseEntity<Enrollee> getEnrolleeById(@PathVariable("enrollment_id") String id) throws Exception {
 
 		LOGGER.info("Finding enrollee with id" + id);
@@ -106,15 +106,15 @@ public class EnrollmentRestController {
 			}
 		} catch (Exception e) {
 
-			e.printStackTrace();
+			//
 			throw e;
 		}
 
 		return new ResponseEntity<Void>(HttpStatus.CREATED);
 	}
 
-	// Put Request for modifying dependents of an Enrollee
-	@RequestMapping(value = "/modifyEnrolleeDependents/{Enrollee_id}", method = RequestMethod.PUT)
+	// Put Request for modifying dependents information of an Enrollee
+	@RequestMapping(value = "/updateEnrolleeDependents/{Enrollee_id}", method = RequestMethod.PUT)
 	public ResponseEntity<Void> modifyEnrolleeDependents(@PathVariable("Enrollee_id") String id,
 			@Valid @RequestBody String request) throws Exception {
 
@@ -144,11 +144,10 @@ public class EnrollmentRestController {
 			}
 		} catch (Exception e) {
 
-			e.printStackTrace();
 			throw e;
 		}
 
-		return new ResponseEntity<Void>(HttpStatus.CREATED);
+		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 	}
 
 	// Delete request for deleting all dependents of Enrollee

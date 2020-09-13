@@ -17,7 +17,7 @@ import com.diwakar.enrollment.rest.ModifyEnrolleeRequest;
 
 public interface EnrollmentService {
 
-	
+	public Enrollee findEnrolleeById(String enrolleeId) throws DataAccessException;
 
 	public Enrollee addNewRnrollee(Enrollee enrollee) throws DataAccessException;
 

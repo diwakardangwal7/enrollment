@@ -33,8 +33,6 @@ public class EnrollmentServiceImpl implements EnrollmentService {
 	@Autowired
 	MongoOperations mongoOperations;
 
-	
-
 	@Transactional
 	public Enrollee addNewRnrollee(Enrollee enrollee) throws DataAccessException {
 
@@ -57,7 +55,7 @@ public class EnrollmentServiceImpl implements EnrollmentService {
 				throw new EnrollmentMethodNotAllowedException("Not able to save Enrollee");
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+
 			throw e;
 		}
 
@@ -90,7 +88,7 @@ public class EnrollmentServiceImpl implements EnrollmentService {
 				throw new EnrolleeNotFoundException("Enrollee doesnot exist");
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+
 			throw e;
 
 		}
@@ -115,7 +113,7 @@ public class EnrollmentServiceImpl implements EnrollmentService {
 				throw new EnrolleeNotFoundException("Enrollee doesnot exist with id : " + id);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+
 			throw e;
 
 		}
@@ -143,7 +141,7 @@ public class EnrollmentServiceImpl implements EnrollmentService {
 				throw new EnrolleeNotFoundException("Enrollee doesnot exist with id : " + enrolleeId);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			//
 			throw e;
 
 		}
@@ -171,7 +169,7 @@ public class EnrollmentServiceImpl implements EnrollmentService {
 				throw new EnrolleeNotFoundException("Enrollee doesnot exist with id : " + enrolleeId);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+
 			throw e;
 
 		}
@@ -197,13 +195,31 @@ public class EnrollmentServiceImpl implements EnrollmentService {
 				throw new EnrolleeNotFoundException("Enrollee doesnot exist with id : " + enrolleeId);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+
 			throw e;
 
 		}
 
 	}
 
-	
+	public Enrollee findEnrolleeById(String id) throws DataAccessException {
+		Query query = new Query();
+		query.addCriteria(Criteria.where("enrolleeId").is(id));
+
+		Enrollee enr = mongoOperations.findOne(query, Enrollee.class);
+
+		try {
+			if (enr != null) {
+				return enr;
+			} else {
+				throw new EnrolleeNotFoundException("Enrollee doesnot exist with id : " + id);
+			}
+		} catch (Exception e) {
+
+			throw e;
+
+		}
+
+	}
 
 }
