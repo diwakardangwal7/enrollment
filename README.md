@@ -136,9 +136,14 @@ mvn clean install
 
 This will build the project as well as create a image for the application.
 
+
 Now push the created image in docker hub
 
+
 docker push diwakardangwal/myrepository:enrolv1
+
+ ![alt text](screenshots/11.png)
+
 
 Create Docker Compose File so that 2 containers can communicate with each other
 
@@ -164,9 +169,24 @@ Now execute
 
 docker-compose pull
 
+![alt text](screenshots/12.png)
+
+
+
 docker-comppse up
 
+![alt text](screenshots/13.png)
+
 Application will be up and running with MongoDB and all the operations listed above can be performed.
+
+![alt text](screenshots/14.png)
+
+Running containers on docker can be seen by  
+docker container ls -a 
+
+
+![alt text](screenshots/15.png)
+
 
  
  
