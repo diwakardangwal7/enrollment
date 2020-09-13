@@ -20,7 +20,7 @@ Prerequisites To Run the Microservice
 1. Maven
 2. Java Run Time
 3. Mongo DB Installation
-4. Docker and Kubernetes (If needed to execute as standalone pod of microservice for scaling)
+4. Docker and Docker Compose (For running containers and communicating. One container will have SpringBoot Microservice and other container will have MongoDB)
 
 
 Steps: 
@@ -85,3 +85,88 @@ Below are the API end points testing screenshots from postman.
  7. Delete dependents of Enrollee
  
  ![alt text](screenshots/10.png)
+ 
+ 
+ 
+ Dockerization Of Microservice ----
+ 
+Changes in application.properties :
+Comment out mongodb host port and DB as below
+#spring.data.mongodb.host=localhost
+#spring.data.mongodb.port=27017
+#spring.data.mongodb.database=enrolment
+
+Add URI key as below in application.properties
+
+dockerspring.data.mongodb.uri=mongodb://mymongocontainer:27017/enrolment
+
+
+Now create a docker file , sample is already present in the repo
+Create a Docker File
+
+FROM openjdk:8-jdk-alpine
+VOLUME /tmp
+ADD  target/enrollment-v1.jar .
+ENTRYPOINT ["java","-Dspring.data.mongodb.uri=mongodb://mymongocontainer:27017/enrollment", "-jar","/enrollment-v1.jar"]
+
+Now execute maven - by adding below plugin in pom.xml . In configuration tag please provide the dockerhub repo 
+
+<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>${dockerfile-maven-version}</version>
+				<executions>
+					<execution>
+						<id>default</id>
+						<goals>
+							<goal>build</goal>
+							<goal>push</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<username>diwakardangwal</username>
+					<password>putyourpassword</password>     ------ do provide ur usrname and password for dockerhub
+					<repository>diwakardangwal/myrepository</repository>
+					<tag>enrolv1</tag>
+				</configuration>
+</plugin>
+
+mvn clean install
+
+This will build the project as well as create a image for the application.
+
+Now push the created image in docker hub
+
+docker push diwakardangwal/myrepository:enrolv1
+
+Create Docker Compose File so that 2 containers can communicate with each other
+
+create docker-compose.yml
+
+version: "1"
+services:
+  mongodb:
+    image: mongo:3.2.4
+    container_name: "mymongocontainer"    
+    command: --smallfiles
+  app:
+    image: diwakardangwal/myrepository:enrolv1
+    ports:
+    - 8080:8080
+    links:
+    - mongodb
+    depends_on:
+    - mongodb
+
+
+Now execute
+
+docker-compose pull
+
+docker-comppse up
+
+Application will be up and running with MongoDB and all the operations listed above can be performed.
+
+ 
+ 
