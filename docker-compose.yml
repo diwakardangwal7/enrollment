@@ -1,0 +1,21 @@
+version: "1"
+services:
+  mongodb:
+    image: mongo:3.2.4
+    container_name: "mymongocontainer"    
+    command: --smallfiles
+  app:
+    image: diwakardangwal/myrepository:enrolv1
+    ports:
+    - 8080:8080
+    links:
+    - mongodb
+    depends_on:
+    - mongodb
+FROM openjdk:8-jdk-alpine
+
+VOLUME /tmp
+
+ADD target/enrollment-v1.jar .
+
+ENTRYPOINT ["java","-Dspring.data.mongodb.uri=mongodb://mymongocontainer:27017/enrollment", "-jar","/enrollment-v1.jar"]

@@ -1,4 +1,7 @@
 FROM openjdk:8-jdk-alpine
+
 VOLUME /tmp
-ADD  target/theater-1.1-SNAPSHOT.jar .
-ENTRYPOINT ["java","-jar","/theater-1.1-SNAPSHOT.jar"]
+
+ADD target/enrollment-v1.jar .
+
+ENTRYPOINT ["java","-Dspring.data.mongodb.uri=mongodb://mymongocontainer:27017/enrollment", "-jar","/enrollment-v1.jar"]
