@@ -123,8 +123,11 @@ ENTRYPOINT ["java","-Dspring.data.mongodb.uri=mongodb://mymongocontainer:27017/e
 
 
 
-Now execute maven by uncommenting com.spotify docker maven   plugin comment   In configuration tag please provide the dockerhub repo username password 
+Now execute maven by uncommenting com.spotify docker maven   plugin in pom.xml   as shown below :
 
+In configuration tag please provide the dockerhub repo username password 
+
+ ![alt text](screenshots/16.png)
 
 Once pom.xml is updated then create maven build
 
