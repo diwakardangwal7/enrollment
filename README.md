@@ -26,10 +26,12 @@ spring.data.mongodb.database=enrollment
 4. Executable jar will be present in D:\Sample\enrollment-master\target
 
 Run below command from D:\Sample\enrollment-master\target
+
 java -jar enrollmentservice-0.0.1-SNAPSHOT.jar
  
 
 Now the embedded tom cat server is started and microservice is up and running. Documentation for API can be checked using Swagger by hitting below url.
+
 http://localhost:8080/enrollment/swagger-ui/
 
  
