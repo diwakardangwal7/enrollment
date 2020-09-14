@@ -128,7 +128,7 @@
 
 				<configuration>
 					<username>diwakardangwal</username>
-					<password>x1y2z3a4</password>
+					<password>changeurpassword</password>
 					<repository>diwakardangwal/myrepository</repository>
 					<tag>enrolv1</tag>
 
