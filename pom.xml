@@ -133,10 +133,10 @@
 					<tag>enrolv1</tag>
 
 
-				</configuration> -->
+				</configuration> 
 
 
-			</plugin>
+			</plugin> --> 
 
 		</plugins>
 	</build>
