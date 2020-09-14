@@ -96,6 +96,13 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+
 
 
 
@@ -110,33 +117,13 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			
-			<!--<plugin>
-				<groupId>com.spotify</groupId>
-				<artifactId>dockerfile-maven-plugin</artifactId>
-				<version>${dockerfile-maven-version}</version>
-				<executions>
-					<execution>
-						<id>default</id>
-						<goals>
-							<goal>build</goal>
-							<goal>push</goal>
-						</goals>
 
-					</execution>
-				</executions>
-
-				<configuration>
-					<username>diwakardangwal</username>
-					<password>changeurpassword</password>
-					<repository>diwakardangwal/myrepository</repository>
-					<tag>enrolv1</tag>
-
-
-				</configuration> 
-
-
-			</plugin> --> 
+			<!--<plugin> <groupId>com.spotify</groupId> <artifactId>dockerfile-maven-plugin</artifactId> 
+				<version>${dockerfile-maven-version}</version> <executions> <execution> <id>default</id> 
+				<goals> <goal>build</goal> <goal>push</goal> </goals> </execution> </executions> 
+				<configuration> <username>diwakardangwal</username> <password>changeurpassword</password> 
+				<repository>diwakardangwal/myrepository</repository> <tag>enrolv1</tag> </configuration> 
+				</plugin> -->
 
 		</plugins>
 	</build>
