@@ -7,7 +7,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.3.1.RELEASE</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.healthorg</groupId>
 	<artifactId>enrollmentservice</artifactId>
@@ -53,7 +53,7 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
-			<version>5.4.2.Final</version>
+			<version>5.4.3.Final</version>
 		</dependency>
 
 		<!-- Logging Start -->
